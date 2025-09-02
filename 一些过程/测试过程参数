@@ -1,0 +1,19 @@
+(yolov5) xyren@xyren-cpt:~/YOLO/yolov5$ python val.py
+val: data=/home/xyren/YOLO/yolov5/data/xyren.yaml, weights=/home/xyren/YOLO/yolov5/runs/train/exp7/weights/best.pt, batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.6, max_det=300, task=val, device=, workers=8, single_cls=False, augment=False, verbose=False, save_txt=False, save_hybrid=False, save_conf=False, save_json=False, project=runs/val, name=exp, exist_ok=False, half=False, dnn=False
+YOLOv5 🚀 125c2e7 Python-3.9.20 torch-2.5.1+cu124 CUDA:0 (NVIDIA GeForce RTX 3050 Laptop GPU, 3904MiB)
+
+/home/xyren/YOLO/yolov5/models/experimental.py:98: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+Fusing layers... 
+Model summary: 157 layers, 7023610 parameters, 0 gradients, 15.8 GFLOPs
+val: Scanning /home/xyren/YOLO/yolov5/datasets/labels/test.cache... 13 images, 0 backgrounds, 0 corrupt: 100%|██████████| 13/13 [00:00<?, ?it/s]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.70s/it]
+                   all         13        478      0.653      0.357       0.33      0.127
+                   car         13        293      0.211      0.123      0.123     0.0318
+                 truck         13         13          1          0     0.0125    0.00249
+                   bus         13         17          1          0     0.0043    0.00043
+        zebra_crossing         13         75      0.647      0.813      0.776      0.299
+           Green_Belts         13         80      0.406       0.85      0.733      0.299
+Speed: 3.6ms pre-process, 117.5ms inference, 80.1ms NMS per image at shape (32, 3, 640, 640)
+Results saved to runs/val/exp3
+
